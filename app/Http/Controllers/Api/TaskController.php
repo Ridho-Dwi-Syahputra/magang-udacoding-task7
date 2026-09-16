@@ -26,6 +26,7 @@ class TaskController extends Controller
         $tasks = $query->latest()->get();
 
         return response()->json([
+            'success' => true,
             'message' => 'Daftar task berhasil diambil.',
             'total' => $tasks->count(),
             'data' => TaskResource::collection($tasks),
@@ -35,6 +36,7 @@ class TaskController extends Controller
     public function show(Task $task): JsonResponse
     {
         return response()->json([
+            'success' => true,
             'message' => 'Detail task berhasil diambil.',
             'data' => new TaskResource($task),
         ]);
@@ -45,6 +47,7 @@ class TaskController extends Controller
         $task = Task::create($request->validated());
 
         return response()->json([
+            'success' => true,
             'message' => 'Task berhasil dibuat.',
             'data' => new TaskResource($task),
         ], 201);
@@ -55,6 +58,7 @@ class TaskController extends Controller
         $task->update($request->validated());
 
         return response()->json([
+            'success' => true,
             'message' => 'Task berhasil diperbarui.',
             'data' => new TaskResource($task->fresh()),
         ]);
@@ -65,7 +69,9 @@ class TaskController extends Controller
         $task->delete();
 
         return response()->json([
+            'success' => true,
             'message' => 'Task berhasil dihapus.',
+            'data' => null,
         ]);
     }
 }

@@ -16,12 +16,12 @@ class DatabaseSeeder extends Seeder
         );
 
         $tasks = [
-            ['title' => 'Setup project Laravel', 'status' => 'done', 'description' => 'Install Laravel dan konfigurasi database.', 'due_date' => '2026-08-18'],
-            ['title' => 'Bikin migration tabel tasks', 'status' => 'done', 'description' => 'Kolom title, description, status, due_date.', 'due_date' => '2026-08-19'],
-            ['title' => 'Rapikan response JSON pakai API Resource', 'status' => 'progress', 'description' => 'Biar bentuk responsenya konsisten di semua endpoint.', 'due_date' => '2026-08-22'],
-            ['title' => 'Testing semua endpoint di Postman', 'status' => 'progress', 'description' => null, 'due_date' => '2026-08-23'],
-            ['title' => 'Tambah endpoint login pakai Sanctum', 'status' => 'todo', 'description' => 'Persiapan buat Task 8.', 'due_date' => '2026-08-24'],
-            ['title' => 'Tulis README dan contoh curl', 'status' => 'todo', 'description' => null, 'due_date' => null],
+            ['title' => 'Task 1: Instalasi dan Konfigurasi Awal', 'status' => 'done', 'description' => 'Melakukan instalasi framework dan konfigurasi environment.', 'due_date' => '2026-09-10'],
+            ['title' => 'Task 2: Pembuatan Skema Database', 'status' => 'done', 'description' => 'Merancang dan mengimplementasikan tabel pada basis data.', 'due_date' => '2026-09-12'],
+            ['title' => 'Task 3: Implementasi API Endpoint', 'status' => 'progress', 'description' => 'Membuat rute dan controller untuk metode GET, POST, PUT, dan DELETE.', 'due_date' => '2026-09-15'],
+            ['title' => 'Task 4: Pengujian API', 'status' => 'todo', 'description' => 'Melakukan pengujian seluruh endpoint menggunakan perangkat lunak klien.', 'due_date' => '2026-09-18'],
+            ['title' => 'Task 5: Integrasi Autentikasi', 'status' => 'todo', 'description' => 'Menambahkan sistem login dan verifikasi token akses.', 'due_date' => '2026-09-20'],
+            ['title' => 'Task 6: Penyusunan Dokumentasi', 'status' => 'todo', 'description' => 'Menyusun dokumen panduan penggunaan dan API referensi.', 'due_date' => '2026-09-25'],
         ];
 
         foreach ($tasks as $task) {

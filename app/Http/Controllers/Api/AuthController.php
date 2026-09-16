@@ -28,14 +28,21 @@ class AuthController extends Controller
             ])->status(401);
         }
 
+        // Hapus semua token lama milik user ini (Single Session)
+        // Jadi kalau dia login ulang, token yang lama otomatis hangus.
+        $user->tokens()->delete();
+
         return response()->json([
+            'success' => true,
             'message' => 'Login berhasil.',
-            'user' => [
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-            ],
-            'token' => $user->createToken('api_token')->plainTextToken,
+            'data' => [
+                'user' => [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'email' => $user->email,
+                ],
+                'token' => $user->createToken('api_token')->plainTextToken,
+            ]
         ]);
     }
 
@@ -44,7 +51,9 @@ class AuthController extends Controller
         $request->user()->currentAccessToken()->delete();
 
         return response()->json([
+            'success' => true,
             'message' => 'Logout berhasil, token sudah dicabut.',
+            'data' => null,
         ]);
     }
 }

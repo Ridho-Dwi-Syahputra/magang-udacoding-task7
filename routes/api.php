@@ -6,15 +6,21 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/login', [AuthController::class, 'login']);
 
-Route::get('/tasks', [TaskController::class, 'index']);
-Route::get('/tasks/{task}', [TaskController::class, 'show']);
-Route::post('/tasks', [TaskController::class, 'store']);
-Route::put('/tasks/{task}', [TaskController::class, 'update']);
-Route::patch('/tasks/{task}', [TaskController::class, 'update']);
-Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
-
-// Endpoint yang butuh token. Di Task 7 baru dua ini, sisanya nyusul di Task 8.
+// Endpoint yang butuh token. Sekarang semua task juga dilindungi.
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/me', fn (Illuminate\Http\Request $request) => $request->user());
+    Route::get('/me', fn (Illuminate\Http\Request $request) => response()->json([
+        'success' => true,
+        'message' => 'Data profil berhasil diambil.',
+        'data' => $request->user(),
+    ]));
+    
+    // CRUD Tasks
+    Route::get('/tasks', [TaskController::class, 'index']);
+    Route::get('/tasks/{task}', [TaskController::class, 'show']);
+    Route::post('/tasks', [TaskController::class, 'store']);
+    Route::put('/tasks/{task}', [TaskController::class, 'update']);
+    Route::patch('/tasks/{task}', [TaskController::class, 'update']);
+    Route::delete('/tasks/{task}', [TaskController::class, 'destroy']);
+
     Route::post('/logout', [AuthController::class, 'logout']);
 });

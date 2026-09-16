@@ -1,6 +1,6 @@
 # Task API - Laravel REST API
 
-Task 7 magang Udacoding Batch 21. REST API buat manajemen task, dibikin pakai Laravel. Belum ada proteksi auth di endpoint task-nya, itu bagian Task 8. Yang sudah ada di sini cuma endpoint login yang ngeluarin token Sanctum.
+Task 7 magang Udacoding Batch 21. REST API buat manajemen task, dibikin pakai Laravel. Saat ini, semua endpoint (termasuk task) sudah dilindungi oleh autentikasi Sanctum (token).
 
 ## Stack
 
@@ -37,12 +37,12 @@ password : password123
 
 | Method | Endpoint | Auth | Keterangan |
 |---|---|---|---|
-| GET | `/api/tasks` | tidak | List semua task |
-| GET | `/api/tasks/{id}` | tidak | Detail satu task |
-| POST | `/api/tasks` | tidak | Buat task baru |
-| PUT | `/api/tasks/{id}` | tidak | Update task |
-| PATCH | `/api/tasks/{id}` | tidak | Update sebagian field |
-| DELETE | `/api/tasks/{id}` | tidak | Hapus task |
+| GET | `/api/tasks` | ya | List semua task |
+| GET | `/api/tasks/{id}` | ya | Detail satu task |
+| POST | `/api/tasks` | ya | Buat task baru |
+| PUT | `/api/tasks/{id}` | ya | Update task |
+| PATCH | `/api/tasks/{id}` | ya | Update sebagian field |
+| DELETE | `/api/tasks/{id}` | ya | Hapus task |
 | POST | `/api/login` | tidak | Login, balikin token |
 | GET | `/api/me` | ya | Data user pemilik token |
 | POST | `/api/logout` | ya | Cabut token yang lagi dipakai |
